@@ -3,9 +3,11 @@ export default function FeatureCard({ branch, icon, title, children }) {
     <div className="relative flex flex-col items-center text-center
                     border-2 border-[var(--color--brown)]
                     rounded-2xl px-12 pt-16 pb-6 h-full bg-white w-85">
-      <img src={branch}
-           alt=""
-           className="absolute -top-0.5 left-1/2 -translate-x-1/2 h-20" />
+      <img
+        src={branch}
+        alt=""
+        className="absolute -top-0.5 left-1/2 -translate-x-1/2 h-20"
+      />
 
       <div className="grid place-items-center h-12 w-12 text-[var(--color--brown)]">
         {icon}
