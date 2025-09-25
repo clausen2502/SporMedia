@@ -48,6 +48,7 @@ npm i \
   sort-by@1.2.0 \
   tailwindcss@4.1.11 \
   @tailwindcss/vite@4.1.11
+  react-router-hash-link
 
 # Dev deps
 npm i -D \

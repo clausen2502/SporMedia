@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,9 +17,9 @@ export default function Navbar() {
       <img src={logo} alt="Spor Logo" className="h-[100px]" />
       </Link>
       <div className="flex items-center gap-20">
-        <a href="/#um-okkur" className="nav-link">Um Okkur</a>
+        <HashLink smooth to="/#um-okkur" className="nav-link">Um okkur</HashLink>
         <a href="/blog" className="nav-link">Blogg</a>
-        <a href="/#hafa-samband" className="nav-link">Hafa Samband</a>
+        <HashLink smooth to="/#hafa-samband" className="nav-link">Hafa samband</HashLink>
       </div>
     </nav>
   );
