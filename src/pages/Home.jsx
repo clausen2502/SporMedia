@@ -21,7 +21,6 @@ export default function Home() {
             <div id="um-okkur" className="pt-20 -mt-20" />
             <AboutSection />
           </main>
-          <div className="mt-12 relative left-1/2 right-1/2 -ml-[50vw] w-screen border-t-2 border-[var(--color--brown)]" />
         </div>
       </section>
       <div id="hafa-samband" className="pt-20 -mt-20" />
