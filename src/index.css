@@ -1,106 +1,31 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Clinica Pro";
-  src: url("/fonts/clinica-pro/ClinicaPro-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Clinica Pro";
-  src: url("/fonts/clinica-pro/ClinicaPro-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Clinica Pro";
-  src: url("/fonts/clinica-pro/ClinicaPro-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Color palette & base styles */
 @layer base {
-  :root {
-    --color--dark_brown: #5D3A1A;
-    --color--brown: #A47551;
-    --color--cream: #FFF8F2;
-    --color--blue: #4E53F2;
-    --color--light_grey: #E5E5E5;
-    --color--black: #1D1C1F;
-  }
   body {
-    @apply bg-[var(--color--cream)];
-  }
-}
-
-@layer utilities {
-  .dark_brown { color: var(--color--dark_brown); }
-  .brown { color: var(--color--brown); }
-  .cream { color: var(--color--cream); }
-  .blue { color: var(--color--blue); }
-  .light_grey { color: var(--color--light_grey); }
-  .black { background-color: var(--color--black); }
-}
-
-@layer components {
-  .brown-btn-nav {
-    background-color: var(--color--brown);
-    color: var(--color--cream);
-
-    @apply px-6 py-1.5 rounded-full font-medium
-           transition duration-200 ease-in-out
-           cursor-pointer border;
-    border: 1px solid var(--color--black);
-  }
-
-  .brown-btn-nav:hover {
-    background-color: var(--color--dark_brown);
-    border-color: var(--color--dark_brown);
-  }
-
-  .nav-link {
-    @apply relative text-base font-medium text-[color:var(--color--dark_brown)] transition;
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color--brown);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.25s ease-in-out;
-  }
-
-  .nav-link:hover::after {
-    transform: scaleX(1);
-  }
-
-  .brown-btn {
-    background-color: var(--color--brown);
-    color: var(--color--cream);
-
-    @apply px-10 py-2.5 rounded-full font-medium
-           transition duration-200 ease-in-out
-           cursor-pointer border;
-    border: 1px solid var(--color-black);
-  }
-
-  .brown-btn:hover {
-    background-color: var(--color--dark_brown);
+    font-family: 'Pinchik', sans-serif;
   }
 
   html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+  }
 }
 
+@layer components {
+    
+  .nav-logo {
+    @apply filter brightness-0 invert;
+  }
+
+  .nav-link {
+    @apply relative uppercase tracking-[0.2em] text-sm text-white/80 transition-colors duration-200 hover:text-white;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-[2px] bg-white/80 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
 }

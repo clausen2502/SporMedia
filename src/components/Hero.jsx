@@ -1,11 +1,8 @@
-import forrest1 from "../assets/forrest3.jpg";
-
 export default function Hero() {
   return (
     <header
       id="heim"
-      className="relative h-[85vh] bg-cover bg-center"
-      style={{ backgroundImage: `url(${forrest1})` }}
+      className="relative h-[85vh] bg-black flex flex-col items-center text-center pt-32"
     >
       <div className="relative flex flex-col items-center text-center pt-32">
         <p className="dark_brown font-semibold text-6xl">Sterkar rætur skipta máli.</p>
