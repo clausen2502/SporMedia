@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import camera_flash from "../assets/camera-flash1.mp4";
+import camera_flash from "../assets/camera-flash.mp4";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -10,10 +10,10 @@ export default function Navbar() {
   const ticking = useRef(false);
   const vidRef = useRef(null);
 
-  // thresholds
-  const SHOW_BG_AT = 50;    // when to add blur/background
-  const HIDE_AFTER = 120;   // don’t hide until we’ve scrolled a bit
-  const DELTA = 10;         // minimal movement before toggling
+  // thresholdsc
+  const SHOW_BG_AT = 60;    // when to add blur/background
+  const HIDE_AFTER = 200;
+  const DELTA = 5;         // minimal movement before toggling
 
   useEffect(() => {
     const onScroll = () => {
@@ -61,8 +61,8 @@ export default function Navbar() {
     <nav
       className={[
         "font-display fixed top-0 left-0 w-full z-50 px-10 py-2 pt-5",
-        "flex items-center justify-between transition-all duration-300 ease-out",
-        scrolled ? "backdrop-blur-md bg-black/50 shadow-md border-b border-white/30" : "bg-transparent border-b border-white/30",
+        "flex items-center justify-between transition-all duration-300 ease-out border-b",
+        scrolled ? "backdrop-blur-md bg-black/50 shadow-md border-white/30" : "bg-transparent border-white/30",
         hidden ? "-translate-y-full" : "translate-y-0",
         "will-change-transform"
       ].join(" ")}

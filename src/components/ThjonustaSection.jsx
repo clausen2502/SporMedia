@@ -30,19 +30,19 @@ const items = [
 
 export default function Services() {
   return (
-    <section id="thonusta" className="relative bg-black text-white overflow-hidden">
+    <section id="thonusta" className="relative text-white overflow-hidden">
       {/* 🔹 Top gradient divider */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 
       <div className="mx-auto max-w-6xl px-6 py-20">
-        {/* 🩵 Typing Header */}
+        {/* Typing Header */}
         <div className="text-center mb-14">
           <TextType
             text="Þjónustan okkar"
             className="text-3xl sm:text-5xl font-bold tracking-tight"
             speed={70}
             startOnVisible={true}
-            showCursorAfterDone={false}
+            showCursor={false}
           />
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
             Við hjálpum fyrirtækjum, íþróttafélögum og einstaklingum að sjást – faglega og markvisst.

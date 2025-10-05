@@ -1,51 +1,56 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-6">
-      <div className="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-[#5a3d2b]/20 bg-[var(--color--cream)]">
-        {/* top accent line */}
-        <div className="h-1 w-full bg-[#5a3d2b]" />
+    <div className="relative min-h-[100svh] w-screen overflow-hidden bg-black text-white">
+      {/* Top nav */}
+      <Navbar />
 
-        {/* subtle vignette */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_50%_30%,#d6c7b8_0%,transparent_60%)]" />
+      {/* Background: layered gradients + subtle vignette */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        {/* soft color wash */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/25 via-[#8b5cf6]/20 to-[#22d3ee]/25 blur-3xl opacity-70" />
+        {/* radial glow center-top */}
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_10%,rgba(99,102,241,0.35),transparent_60%)]" />
+        {/* vignette for contrast */}
+        <div className="absolute inset-0 bg-[radial-gradient(140%_120%_at_50%_20%,transparent_50%,rgba(0,0,0,0.7)_100%)]" />
+      </div>
 
-        <div className="px-8 py-12 text-center">
-          <p className="tracking-widest text-xs uppercase text-[#5a3d2b]/60">
-            Villa 404
-          </p>
-
-          <h1 className="mt-2 text-4xl md:text-5xl font-extrabold text-[#5a3d2b]">
-            Síða fannst ekki
+      {/* Main content */}
+      <main className="mx-auto max-w-5xl px-6 pt-28 pb-20">
+        <section className="flex min-h-[60svh] flex-col items-center justify-center text-center">
+          {/* Big 404 with gradient text */}
+          <h1 className="select-none bg-gradient-to-r from-white via-white/80 to-white/60 bg-clip-text text-transparent text-[22vw] leading-none font-extrabold tracking-tight md:text-[12rem]">
+            404
           </h1>
 
-          <p className="mt-4 text-[#5a3d2b]/80 md:text-lg">
-            Slóðin sem þú reyndir er ekki til eða hefur verið flutt.
+          <p className="mt-6 text-lg md:text-xl text-white/80">
+            Úbbs! Síðan sem þú ert að leita að fannst ekki.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white bg-[#5a3d2b] hover:bg-[#4c3325] transition"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-black hover:opacity-90 transition"
             >
               Fara á forsíðu
             </Link>
-            <Link
-              to="/blog"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold border border-[#5a3d2b]/30 text-[#5a3d2b] hover:bg-[#5a3d2b]/5 transition"
+            <HashLink
+              smooth
+              to="/#hafa-samband"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-white/30 text-white hover:border-white/60 transition"
             >
-              Lesa bloggið
-            </Link>
+              Hafa samband
+            </HashLink>
           </div>
+        </section>
+      </main>
 
-          <p className="mt-10 text-sm text-[#5a3d2b]/60">
-            Ef þú heldur að þetta sé villa, reyndu að endurhlaða síðuna eða farðu til baka.
-          </p>
-        </div>
-
-        {/* bottom rounded footer edge to echo your site cards */}
-        <div className="h-4 w-full bg-[#5a3d2b]/10" />
-      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

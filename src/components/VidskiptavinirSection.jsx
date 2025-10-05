@@ -16,7 +16,7 @@ export default function VidskiptavinirSection() {
       aria-label="Viðskiptavinir"
       className="bg-black text-white py-10 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16">
+      <div className="max-w-6xl md:px-10 lg:px-16">
         <div className="relative flex overflow-x-hidden">
           {/* Row 1 */}
           <div className="flex gap-12 animate-marquee">

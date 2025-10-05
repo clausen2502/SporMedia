@@ -48,10 +48,12 @@ function extendMaterial(BaseMaterial, cfg) {
   return mat;
 }
 
-const CanvasWrapper = ({ children }) => (
-  <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative">
-    {children}
-  </Canvas>
+const CanvasWrapper = ({ children, className = "" }) => (
+  <div className={`w-full h-full ${className}`}>
+    <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full">
+      {children}
+    </Canvas>
+  </div>
 );
 
 const hexToNormalizedRGB = hex => {
@@ -147,7 +149,8 @@ const Beams = ({
   speed = 2,
   noiseIntensity = 1.75,
   scale = 0.2,
-  rotation = 0
+  rotation = 0,
+  className = ''
 }) => {
   const meshRef = useRef(null);
   const beamMaterial = useMemo(
@@ -208,13 +211,12 @@ const Beams = ({
   );
 
   return (
-    <CanvasWrapper>
+    <CanvasWrapper className={className}>
       <group rotation={[0, 0, degToRad(rotation)]}>
         <PlaneNoise ref={meshRef} material={beamMaterial} count={beamNumber} width={beamWidth} height={beamHeight} />
         <DirLight color={lightColor} position={[0, 3, 10]} />
       </group>
       <ambientLight intensity={1} />
-      <color attach="background" args={['#000000']} />
       <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={30} />
     </CanvasWrapper>
   );

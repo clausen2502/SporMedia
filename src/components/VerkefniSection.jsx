@@ -46,7 +46,7 @@ export default function VerkefniSection() {
 
       <div className="mx-auto max-w-6xl px-6 py-20">
         {/* Typing header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-3">
           <TextType
             as="h2"
             text="Verkefnin okkar"
@@ -54,12 +54,13 @@ export default function VerkefniSection() {
             speed={70}
             startOnVisible
             loop={false}
+            showCursor={false}
           />
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
             Úrval verkefna þar sem við sameinum hönnun, vef og miðlun til að skila sýnileika og árangri.
           </p>
+          <Vidskiptavinir />
         </div>
-        <Vidskiptavinir />
         {/* Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map(({ name, role, icon: Icon, blurb, link }) => (
