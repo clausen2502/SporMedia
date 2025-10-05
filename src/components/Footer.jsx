@@ -11,7 +11,6 @@ export default function Footer() {
 
       <div className="px-6 md:px-10 lg:px-16">
         <div className="py-10 grid gap-10 md:grid-cols-3 items-start">
-          {/* brand */}
           <div className="space-y-4">
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Heim">
               <img src={logo} alt="Spor Media" className="h-10" />
