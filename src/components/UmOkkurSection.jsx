@@ -12,7 +12,7 @@ const people = [
 
 export default function UmOkkur() {
   return (
-    <section id="umokkur" className="relative bg-black text-white overflow-hidden">
+    <section id="umokkur" className="relative text-white overflow-hidden">
       {/* 🔹 Top gradient divider (matches Þjónustan) */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 
@@ -27,7 +27,7 @@ export default function UmOkkur() {
             showCursor={false}
           />
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-            Teymið á bak við verkefnin — skapandi, hagnýtt og með fókus á gæði.
+            Teymið á bak við verkefnin
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function UmOkkur() {
                          backdrop-blur-sm transition-transform motion-safe:duration-300
                          hover:-translate-y-1 hover:border-white/25"
             >
-              {/* Glow on hover (same as services) */}
+              {/* Glow on hover*/}
               <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 
                               transition-opacity motion-safe:duration-300 group-hover:opacity-100
                               bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.18),rgba(0,0,0,0))]" />
@@ -56,7 +56,6 @@ export default function UmOkkur() {
                     loading="lazy"
                   />
                 </div>
-
                 <h3 className="text-xl font-semibold text-center">{p.name}</h3>
                 <p className="mt-1 text-sm text-white/70 text-center">{p.title}</p>
               </div>
@@ -65,7 +64,6 @@ export default function UmOkkur() {
         </div>
       </div>
 
-      <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
     </section>
   );
 }

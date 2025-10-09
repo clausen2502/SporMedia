@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-300">
+    <footer className=" text-gray-300">
       {/* hairline gradient divider */}
       <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 

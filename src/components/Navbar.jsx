@@ -107,15 +107,15 @@ export default function Navbar() {
       </div>
 
       {/* Navigation links */}
-      <div className="flex items-center gap-12 text-white">
-        <HashLink smooth to="/#um-okkur" className="nav-link font-display">
-          UM OKKUR
+      <div className="flex item€s-center gap-12 text-white">
+        <HashLink smooth to="/#um-okkur" className="nav-link">
+          Um Okkur
         </HashLink>
-        <a href="/blog" className="nav-link font-display">
-          VERKEFNI
+        <a href="/blog" className="nav-link">
+          Verkefni
         </a>
-        <HashLink smooth to="/#hafa-samband" className="nav-link font-display">
-          HAFA SAMBAND
+        <HashLink smooth to="/#hafa-samband" className="nav-link-samband">
+          Hafa Samband
         </HashLink>
       </div>
     </nav>

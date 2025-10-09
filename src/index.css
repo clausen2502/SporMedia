@@ -19,25 +19,34 @@
 
 @layer navbar-and-footer {  
   .font-display {
-    font-family: 'Pinchik', 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Manrope';
   }
 
   .nav-logo {
     @apply filter brightness-0 invert;
   }
 
-  .nav-link {
-    @apply relative uppercase tracking-[0.2em] text-lg text-white/80 transition-colors duration-200 hover:text-white;
-  }
+.nav-link {
+  @apply relative py-2 text-lg font-medium tracking-[0.2em]
+    text-white/90 border border-transparent rounded-md
+    transition-all duration-300 hover:text-white;
+}
 
-  .nav-link::after {
-    content: "";
-    @apply absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-[2px] bg-white/80 transition-all duration-300;
-  }
+.nav-link::after {
+  content: "";
+  @apply absolute left-1/2 -translate-x-1/2 bottom-1 w-0 h-[2px]
+    bg-white/80 transition-all duration-300;
+}
 
-  .nav-link:hover::after {
-    @apply w-full;
-  }
+.nav-link:hover::after {
+  @apply w-3/4;
+}
+
+.nav-link-samband {
+  @apply px-4 py-3 border border-white text-white hover:bg-white hover:text-black
+    transition-all duration-300 rounded-md font-medium tracking-[0.2em];
+}
+
 
   .footer-link {
     @apply text-sm text-gray-300 hover:text-white transition;

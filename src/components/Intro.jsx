@@ -10,19 +10,12 @@ export default function Intro() {
       id="intro"
       className="relative w-screen min-h-[100svh] overflow-hidden text-white flex flex-col items-center justify-center"
     >
-      {/* 🔹 Background (Silk effect) */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <Threads
-          amplitude={3.6}
-          distance={0.2}
-          enableMouseInteraction={true}  // ok; the component can listen on window
-        />
-      </div>
+      {/*  Backround*/}
 
-      {/* 🔹 Optional vignette overlay */}
+      {/* Vignette overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(120%_120%_at_50%_25%,transparent_35%,rgba(0,0,0,0.5)_85%)]" />
 
-      {/* 🔹 Foreground content */}
+      {/* Foreground content */}
       <div className="relative z-10 text-center px-6 max-w-3xl flex-1 flex flex-col justify-center">
         <h1 className="text-4xl sm:text-6xl font-bold">
           <TextType
@@ -53,7 +46,7 @@ export default function Intro() {
         </div>
       </div>
 
-      {/* 🔹 “SJÁ MEIRA” scroll hint */}
+      {/*  “SJÁ MEIRA” scroll hint */}
       <HashLink
         smooth
         to="/#um-okkur"

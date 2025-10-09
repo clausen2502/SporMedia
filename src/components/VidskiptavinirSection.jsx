@@ -14,7 +14,7 @@ export default function VidskiptavinirSection() {
     <section
       id="clients"
       aria-label="Viðskiptavinir"
-      className="bg-black text-white py-10 overflow-hidden"
+      className="bg-black/50 text-white py-10 overflow-hidden"
     >
       <div className="max-w-6xl md:px-10 lg:px-16">
         <div className="relative flex overflow-x-hidden">
