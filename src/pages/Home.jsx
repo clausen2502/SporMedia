@@ -13,11 +13,12 @@ export default function Home() {
     <>
       <Navbar />
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[#858585]" />
+        <div className="absolute inset-0 bg-[#101820]" />
         <Threads
           amplitude={3.4}
           distance={0.2}
-          enableMouseInteraction={true}/>
+          enableMouseInteraction={true}
+          color={[254/255, 231/255, 21/255]}/>
       </div>
       <Intro />
       <ThjonustaSection />

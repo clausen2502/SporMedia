@@ -1,121 +1,108 @@
-import { ArrowRight } from "lucide-react";
-import SpotlightCard from "../reactBits/spotlight.jsx";
+// src/components/ContactMini.jsx
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
-export default function ContactCTA() {
+export default function ContactMini() {
   const [pending, setPending] = useState(false);
-  const [sent, setSent] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(form.entries());
-
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
     try {
       setPending(true);
-      // TODO: wire backend route:
-      // await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      await new Promise(r => setTimeout(r, 700)); // demo delay
-      setSent(true);
+      // TODO: connect to your backend:
+      // await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      await new Promise((r) => setTimeout(r, 600)); // demo delay
       e.currentTarget.reset();
+      alert("Takk! Við svörum fljótt.");
     } finally {
       setPending(false);
     }
   }
 
   return (
-    <section id="hafa-samband" className="relative sm:py-20">
-      <div className="mx-auto max-w-5xl px-6">
-        <SpotlightCard
-          spotlightColor="rgba(0, 229, 255, 0.20)"
-          className="custom-spotlight-card relative isolate overflow-hidden rounded-3xl border border-white/10 bg-[#525252] backdrop-blur-md"
+    <section className="py-8">
+      {/* wider container */}
+      <div className="mx-auto w-full max-w-4xl px-6">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-3xl border border-[#FEE715]/60 bg-[#101820] p-8 sm:p-12 shadow-xl"
         >
-          <div className="relative z-10 px-6 sm:px-12 sm:py-12 text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-              Byrjum samtalið!
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-white/70">
-              Endilega sentu okkur fyrirspurn og við könnum valmöguleikanna
-            </p>
+          {/* centered header */}
+          <h2 className="text-white text-3xl sm:text-4xl font-semibold text-center">
+            Byrjum samtalið!
+          </h2>
+          <p className="text-white/70 text-sm sm:text-base mt-2 text-center">
+          Endilega sentu okkur fyrirspurn og við könnum valmöguleikanna
+          </p>
 
-            <form
-              onSubmit={handleSubmit}
-              className="mt-10 mx-auto w-full max-w-2xl text-left"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-xs text-white/70 mb-1">
-                    Nafn
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder=""
-                    className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
-                               border border-white/10 px-4 py-3 outline-none
-                               focus:border-white/20 focus:ring-2 focus:ring-white/10"
-                  />
-                </div>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label htmlFor="name" className="block text-xs text-white/70 mb-1">
+              </label>
+              <input
+                id="name"
+                name="name"
+                required
+                placeholder="Nafn"
+                className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
+                           border border-white/10 px-4 py-3 outline-none
+                           focus:border-[#FEE715] focus:ring-2 focus:ring-[#FEE715]/50
+                           focus-visible:outline-[#FEE715] focus-visible:outline-offset-2"
+              />
+            </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-xs text-white/70 mb-1">
-                    Netfang
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder=""
-                    className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
-                               border border-white/10 px-4 py-3 outline-none
-                               focus:border-white/20 focus:ring-2 focus:ring-white/10"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="message" className="block text-xs text-white/70 mb-1">
-                  Skilaboð
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Segðu okkur aðeins frá því hvað þú ert að hugsa um..."
-                  className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
-                             border border-white/10 px-4 py-3 outline-none
-                             focus:border-white/20 focus:ring-2 focus:ring-white/10"
-                />
-              </div>
-
-              {/* Honeypot */}
-              <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
-
-              <div className="mt-6 flex items-center justify-center">
-                <button
-                  type="submit"
-                  disabled={pending}
-                  className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium
-                             bg-white text-black shadow-lg transition
-                             hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100 cursor-pointer"
-                >
-                  {pending ? "Senda..." : "Senda fyrirspurn"}
-                  <ArrowRight size={18} />
-                </button>
-              </div>
-
-              {sent && (
-                <p className="mt-4 text-center text-sm text-emerald-300/90">
-                  Takk! Við svörum eins fljótt og auðið er.
-                </p>
-              )}
-            </form>
+            <div>
+              <label htmlFor="email" className="block text-xs text-white/70 mb-1">
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="Netfang"
+                className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
+                           border border-white/10 px-4 py-3 outline-none
+                           focus:border-[#FEE715] focus:ring-2 focus:ring-[#FEE715]/50
+                           focus-visible:outline-[#FEE715] focus-visible:outline-offset-2"
+              />
+            </div>
           </div>
-        </SpotlightCard>
+
+          <div className="mt-4">
+            <label htmlFor="message" className="block text-xs text-white/70 mb-1">
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              required
+              placeholder="Segðu okkur frá verkefninu…"
+              className="w-full rounded-xl bg-white/5 text-white placeholder-white/40
+                         border border-white/10 px-4 py-3 outline-none
+                         focus:border-[#FEE715] focus:ring-2 focus:ring-[#FEE715]/50
+                         focus-visible:outline-[#FEE715] focus-visible:outline-offset-2"
+            />
+          </div>
+
+          {/* Honeypot (spam trap) */}
+          <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
+
+          <div className="mt-8 flex justify-end">
+            <button
+              type="submit"
+              disabled={pending}
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium
+                         border border-[#FEE715] text-[#101820] bg-[#FEE715]
+                         hover:bg-[#FEE715]/90 active:bg-[#FEE715]/80
+                         disabled:opacity-60 focus-visible:outline-offset-2
+                         focus-visible:outline-[#FEE715] cursor-pointer"
+            >
+              {pending ? "Senda…" : "Senda"}
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );

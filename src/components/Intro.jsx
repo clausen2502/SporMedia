@@ -24,7 +24,7 @@ export default function Intro() {
           />
         </h1>
 
-        <p className="mt-6 text-lg text-white/80">
+        <p className="mt-6 text-lg text-[#F8FAFC]">
           Hnitmiðuð og fagleg markaðsþjónusta sérsniðin fyrir þitt íþróttafélag
         </p>
 
@@ -32,13 +32,13 @@ export default function Intro() {
           <HashLink
             smooth
             to="#hafa-samband"
-            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-black hover:opacity-60 transition"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-[#FEE715] text-black hover:opacity-60 transition"
           >
             Hafa Samband
           </HashLink>
           <Link
             to="#verkefni"
-            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-white/30 text-white hover:border-white/90 transition"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition"
           >
             Skoða Verkefni
           </Link>

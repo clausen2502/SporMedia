@@ -34,7 +34,7 @@ export default function Services() {
             startOnVisible={true}
             showCursor={false}
           />
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+          <p className="mt-4 text-white max-w-2xl mx-auto">
             Spor hjálpar íþróttaliðum að vera sýnilegri og faglegri í stafrænum heimi
           </p>
         </div>
@@ -44,9 +44,9 @@ export default function Services() {
           {items.map(({ title, icon: Icon, desc, bullets }) => (
             <article
               key={title}
-              className="group relative rounded-2xl p-6 bg-[#111111] border border-white/10
+              className="group relative rounded-2xl p-6 bg-[#101820] border border-[#FEE715]
                          backdrop-blur-sm transition-transform motion-safe:duration-300
-                         hover:-translate-y-1 hover:border-white/25">
+                         hover:-translate-y-1 ">
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl p-2 bg-white/5 border border-white/10">
@@ -77,8 +77,8 @@ export default function Services() {
                     <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/30 via-white/10 to-white/30 blur-sm opacity-60 group-hover:opacity-100 transition"></span>
                     <span className="relative rounded-full bg-white/5 px-4 py-2 text-white 
                                     backdrop-blur-sm border border-white/20 
-                                    transition group-hover:bg-white/10 group-active:scale-[0.98]
-                                    focus:outline-none focus:ring-2 focus:ring-white/50">
+                                    transition group-hover:bg-white/30 group-active:scale-[0.98]
+                                    focus:outline-none focus:ring-2 focus:ring-white/50 hover:bg-white/10">
                       Sjá dæmi
                     </span>
                   </a>

@@ -43,7 +43,7 @@
 }
 
 .nav-link-samband {
-  @apply px-4 py-2 border border-white text-white hover:bg-white hover:text-black
+  @apply px-4 py-2 border border-[#FEE715] text-white hover:bg-[#FEE715]/80 hover:text-black
     transition-all duration-300 rounded-md font-medium tracking-[0.2em] text-sm;
 }
 
@@ -61,54 +61,4 @@
     @apply inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 hover:border-white/30 hover:text-white transition;
   }
   
-}
-
-@layer utilities {
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
-  }
-
-.shiny-text {
-  color: #b5b5b5a4;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  display: inline-block;
-  animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 100%;
-    }
-  100% {
-    background-position: -100%;
-    }
-  }
-
-.shiny-text.disabled {
-  animation: none;
-  }
-}
-
-@layer utilities {
-  .silk-fill { position: absolute; inset: 0; }
-  .silk-fill > canvas {
-    position: absolute;
-    inset: 0;
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-  }
 }

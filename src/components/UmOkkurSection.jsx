@@ -41,7 +41,7 @@ export default function UmOkkur() {
             startOnVisible
             showCursor={false}
           />
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+          <p className="mt-4 text-white max-w-2xl mx-auto">
             Metnaðarfullt teymi sem styrkir ímynd íþróttafélaga og kveikir meiri áhuga á íþróttum á Íslandi.
           </p>
         </div>
@@ -51,12 +51,12 @@ export default function UmOkkur() {
           {people.map(({ name, email, role, img }) => (
             <article
               key={name}
-              className="group relative rounded-2xl p-6 bg-[#111111] border border-white/10
-                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/25">
+              className="group relative rounded-2xl p-6 bg-[#101820] border border-[#FEE715]
+                         transition-transform duration-300 hover:-translate-y-1 ">
               <div className="relative z-10 flex flex-col items-center text-center">
                 {/* Avatar */}
                 <div className="mb-5 h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden 
-                                border border-white/10 bg-[#111111]">
+                                border border-white/10 bg-[#101820]">
                   <img src={img} alt={name} className="h-full w-full object-cover object-top" loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold">{name}</h3>
@@ -69,6 +69,7 @@ export default function UmOkkur() {
           ))}
         </div>
       </div>
+      <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
     </section>
   );
 }

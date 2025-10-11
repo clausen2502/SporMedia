@@ -66,7 +66,7 @@ export default function VerkefniSection() {
             loop={false}
             showCursor={false}
           />
-          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+          <p className="mt-4 text-white max-w-2xl mx-auto">
             Spor tekur að sér ýmis verkefni fyrir íþróttafélög til þess að gera eftirminnilegri upplifun fyrir alla í kringum félagið
           </p>
           <Vidskiptavinir />
@@ -81,9 +81,9 @@ export default function VerkefniSection() {
             return (
               <article
                 key={name}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111111]
+                className="group relative overflow-hidden rounded-2xl border border-[#FEE715] bg-[#101820]
                           backdrop-blur-sm p-6 transition-transform motion-safe:duration-300
-                          hover:-translate-y-1 hover:border-white/25 flex flex-col">
+                          hover:-translate-y-1 flex flex-col">
                 {/* Media */}
                 {name === "Breiðablik" ? (
                   <div className={`relative z-10 w-full overflow-hidden rounded-xl
@@ -131,11 +131,11 @@ export default function VerkefniSection() {
                     <h3 className="text-xl font-semibold">{name}</h3>
                   </div>
 
-                  <p className="mt-3 text-white/70">{blurb}</p>
+                  <p className="mt-3 text-[#F8FAFC]">{blurb}</p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {role.map(r => (
-                      <span key={r} className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs text-white/80">
+                      <span key={r} className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs text-white">
                         {r}
                       </span>
                     ))}
