@@ -46,7 +46,7 @@ export default function Navbar() {
   return (
     <nav
       className={[
-        "font-display fixed top-0 left-0 w-full z-50 px-10 py-2 pt-5",
+        "font-display fixed top-0 left-0 w-full z-50 px-10 py-2 pt-3",
         "flex items-center justify-between transition-all duration-300 ease-out border-b border-white/30",
         scrolled ? "backdrop-blur-md border-white/30" : "bg-transparent",
         hidden ? "-translate-y-full" : "translate-y-0",
