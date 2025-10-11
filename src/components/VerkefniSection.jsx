@@ -58,7 +58,7 @@ export default function VerkefniSection() {
         <div className="text-center mb-3">
           <TextType
             as="h2"
-            text="Verkefnin okkar"
+            text="Viðskiptavinirnir okkar"
             className="text-3xl sm:text-5xl font-bold tracking-tight"
             speed={70}
             startOnVisible
@@ -72,7 +72,7 @@ export default function VerkefniSection() {
         </div>
         {/* Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {visibleProjects.map(({ name, role, icon: Icon, blurb, link, website }) => {
+          {visibleProjects.map(({ name, role, icon: Icon, blurb, link, }) => {
             const isPortrait = name === "Breiðablik" || name === "Snerpa Coaching";
             const mediaClass = isPortrait
               ? "aspect-[4/5] md:aspect-[3/4] max-h-[400px] sm:max-h-[480px]"
@@ -148,7 +148,7 @@ export default function VerkefniSection() {
                     </a>
                     <a href={link} target="_blank" rel="noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80">
-                      Skoða vefsíðu <ExternalLink className="h-4 w-4" />
+                      Sjá verkefni 
                     </a>
                   </div>
                 </div>

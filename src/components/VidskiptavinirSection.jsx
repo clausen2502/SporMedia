@@ -5,8 +5,8 @@ import breidablik from "../assets/breidablikWhite.svg";
 import snerpa from "../assets/snerpaWhite.svg";
 
 const imageLogos = [
-  { src: breidablik, alt: "Breiðablik", href: "https://breidablik.is" },
-  { src: snerpa,     alt: "Snerpa Coaching", href: "https://snerpacoaching.is" },
+  { src: breidablik, alt: "Breiðablik", href: "https://www.instagram.com/breidablikfc/" },
+  { src: snerpa,     alt: "Snerpa Coaching", href: "https://www.instagram.com/snerpacoaching/" },
 ];
 
 export default function VidskiptavinirSection() {

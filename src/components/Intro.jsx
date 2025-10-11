@@ -32,15 +32,14 @@ export default function Intro() {
           <HashLink
             smooth
             to="#hafa-samband"
-            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-[#FEE715] text-black hover:opacity-60 transition"
-          >
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-[#FEE715] text-black hover:opacity-60 transition">
             Hafa Samband
           </HashLink>
-          <Link
-            to="#verkefni"
-            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition"
-          >
+          <Link to="verkefni" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition">
             Skoða Verkefni
+          </Link>
+          <Link to="/verkefni" className="nav-link">
+          Verkefni
           </Link>
         </div>
       </div>
@@ -48,8 +47,7 @@ export default function Intro() {
       <HashLink
         smooth
         to="/#um-okkur"
-        className="absolute bottom-6 flex flex-col items-center gap-2 text-white/70 hover:text-white transition"
-      >
+        className="absolute bottom-6 flex flex-col items-center gap-2 text-white/70 hover:text-white transition">
         <span className="uppercase tracking-widest text-sm font-medium">
           SJÁ MEIRA
         </span>

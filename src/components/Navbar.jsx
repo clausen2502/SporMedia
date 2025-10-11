@@ -85,9 +85,9 @@ export default function Navbar() {
         <HashLink smooth to="/#um-okkur" className="nav-link">
           Um Okkur
         </HashLink>
-        <a href="/#verkefni" className="nav-link">
+        <Link to="/verkefni" className="nav-link">
           Verkefni
-        </a>
+        </Link>
         <HashLink smooth to="/#hafa-samband" className="nav-link-samband">
           Hafa Samband
         </HashLink>

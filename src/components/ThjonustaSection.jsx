@@ -21,7 +21,7 @@ const items = [
 export default function Services() {
   return (
     <section id="thjonusta" className="relative text-white overflow-hidden">
-      {/* Top gradient divider */}
+      {/* Divider */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 
       <div className="mx-auto max-w-6xl px-6 py-20">

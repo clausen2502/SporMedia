@@ -21,7 +21,7 @@ export default function ContactMini() {
   }
 
   return (
-    <section className="py-8">
+    <section id="hafa-samband" className="py-8">
       {/* wider container */}
       <div className="mx-auto w-full max-w-4xl px-6">
         <form
