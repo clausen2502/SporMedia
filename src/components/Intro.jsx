@@ -31,13 +31,13 @@ export default function Intro() {
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <HashLink
             smooth
-            to="/"
+            to="#hafa-samband"
             className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-black hover:opacity-60 transition"
           >
             Hafa Samband
           </HashLink>
           <Link
-            to="/verkefni"
+            to="#verkefni"
             className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-white/30 text-white hover:border-white/90 transition"
           >
             Skoða Verkefni
@@ -45,7 +45,6 @@ export default function Intro() {
         </div>
       </div>
 
-      {/*  “SJÁ MEIRA” scroll hint */}
       <HashLink
         smooth
         to="/#um-okkur"

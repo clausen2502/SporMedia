@@ -24,7 +24,7 @@ export default function ContactCTA() {
   }
 
   return (
-    <section id="cta" className="relative sm:py-20">
+    <section id="hafa-samband" className="relative sm:py-20">
       <div className="mx-auto max-w-5xl px-6">
         <SpotlightCard
           spotlightColor="rgba(0, 229, 255, 0.20)"

@@ -20,7 +20,7 @@ const items = [
 
 export default function Services() {
   return (
-    <section id="thonusta" className="relative text-white overflow-hidden">
+    <section id="thjonusta" className="relative text-white overflow-hidden">
       {/* Top gradient divider */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 
