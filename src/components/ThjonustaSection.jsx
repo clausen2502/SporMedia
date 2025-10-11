@@ -67,11 +67,20 @@ export default function Services() {
                 </ul>
                 <div className="mt-6 h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
                 <div className="mt-4 flex items-center gap-4">
-                  <a
-                    href="#hafa-samband"
-                    className="text-sm font-medium underline underline-offset-4 hover:opacity-80"
-                  >
+                  <a href="#hafa-samband" className="text-sm font-medium underline underline-offset-4 hover:opacity-80">
                     Hafa Samband
+                  </a>
+                  <a
+                    href="#verkefni"
+                    className="group relative inline-flex items-center rounded-full p-[1px] 
+                              text-sm font-medium">
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/30 via-white/10 to-white/30 blur-sm opacity-60 group-hover:opacity-100 transition"></span>
+                    <span className="relative rounded-full bg-white/5 px-4 py-2 text-white 
+                                    backdrop-blur-sm border border-white/20 
+                                    transition group-hover:bg-white/10 group-active:scale-[0.98]
+                                    focus:outline-none focus:ring-2 focus:ring-white/50">
+                      Sjá dæmi
+                    </span>
                   </a>
                 </div>
               </div>

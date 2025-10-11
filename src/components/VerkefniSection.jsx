@@ -15,6 +15,7 @@ const projects = [
     blurb:
       "Við sjáum um samfélagsmiðlanna hjá Snerpu Coaching sem er fótboltaþjálfunarfyrirtæki.",
     link: "https://www.instagram.com/snerpacoaching/",
+    website: "https://breidablik.is/"
   },
   {
     name: "Breiðablik",
@@ -23,6 +24,7 @@ const projects = [
     blurb:
       "Við gerum fagleg myndbönd, leikjaumfjöllun og daglega birtingu á alls konar efni sem styrkir ímynd Breiðabliks.",
     link: "https://www.instagram.com/breidablikfc/",
+    website: "https://www.snerpacoaching.is/"
   },
   {
     name: "Ultra International",
@@ -38,7 +40,7 @@ const projects = [
     icon: Sparkles,
     blurb:
       "Stafræn endurnýjun: stílhrein síða sem sýnir verkefni, þjónustu og verkferla á skýran hátt.",
-    link: "https://merkiverk.is",
+    link: "https://merkiverk.is"
   },
 ];
 
@@ -71,7 +73,7 @@ export default function VerkefniSection() {
         </div>
         {/* Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {visibleProjects.map(({ name, role, icon: Icon, blurb, link }) => {
+          {visibleProjects.map(({ name, role, icon: Icon, blurb, link, website }) => {
             const isPortrait = name === "Breiðablik" || name === "Snerpa Coaching";
             const mediaClass = isPortrait
               ? "aspect-[4/5] md:aspect-[3/4] max-h-[400px] sm:max-h-[480px]"
@@ -144,6 +146,10 @@ export default function VerkefniSection() {
                     <a href={link} target="_blank" rel="noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80">
                       Skoða miðla <ExternalLink className="h-4 w-4" />
+                    </a>
+                    <a href={link} target="_blank" rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80">
+                      Skoða vefsíðu <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
                 </div>
