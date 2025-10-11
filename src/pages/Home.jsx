@@ -12,18 +12,18 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="fixed inset-0 -z-10 pointer-events-none">
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-[#858585]" />
         <Threads
           amplitude={3.4}
           distance={0.2}
-          enableMouseInteraction={true}
-        />
+          enableMouseInteraction={true}/>
       </div>
       <Intro />
       <ThjonustaSection />
       <Verkefni />
       <UmOkkur />
-      <HafaSamband />
+      <HafaSamband/>
       <Footer />
     </>
   );

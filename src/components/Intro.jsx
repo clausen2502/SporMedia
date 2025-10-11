@@ -10,36 +10,35 @@ export default function Intro() {
       id="intro"
       className="relative w-screen min-h-[100svh] overflow-hidden text-white flex flex-col items-center justify-center"
     >
-      {/*  Backround*/}
 
       {/* Vignette overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(120%_120%_at_50%_25%,transparent_35%,rgba(0,0,0,0.5)_85%)]" />
+      <div className="absolute inset-0 z-0 pointer-events-none" />
 
       {/* Foreground content */}
       <div className="relative z-10 text-center px-6 max-w-3xl flex-1 flex flex-col justify-center">
         <h1 className="text-4xl sm:text-6xl font-bold">
           <TextType
-            text="Ertu tilbúinn að láta sjá þig?"
+            text="Spor gerir íþróttir að upplifun"
             speed={70}
             showCursor={false}
           />
         </h1>
 
         <p className="mt-6 text-lg text-white/80">
-          Hnitmiðuð og fagleg markaðsþjónusta höfðuð einstaklingum, liðum og fyrirtækjum.
+          Hnitmiðuð og fagleg markaðsþjónusta sérsniðin fyrir þitt íþróttafélag
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <HashLink
             smooth
-            to="/#hafa-samband"
+            to="/"
             className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-black hover:opacity-60 transition"
           >
             Hafa Samband
           </HashLink>
           <Link
             to="/verkefni"
-            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-white/30 text-white hover:border-white/60 transition"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-white/30 text-white hover:border-white/90 transition"
           >
             Skoða Verkefni
           </Link>

@@ -5,33 +5,23 @@ const items = [
   {
     title: "Vefsíðugerð",
     icon: Globe,
-    desc: "Hraðar og hreinar síður sem breyta gestum í viðskiptavini.",
-    bullets: ["React/Vite + Tailwind", "SEO grunnur", "Netverslun (valfrjálst)"],
+    desc: "Við hönnum og byggjum stílhreinar og notendavænar vefsíður fyrir íþróttafélög",
+    bullets: ["Sérsniðin vefsíða fyrir félagið", "Vefhönnun í samræmi við ímynd félagsins",
+      "Notendavænt stjórnkerfi fyrir fréttir, leikjadagskrá, æfingar og myndir",
+      "Samþætting við samfélagsmiðla og möguleika á auglýsingum og samstarfsaðilum"],
   },
   {
-    title: "Grafísk hönnun",
-    icon: Palette,
-    desc: "Stíll sem passar vörumerkinu – á skjá og í prentun.",
-    bullets: ["Myndrænt efni", "Plaköt & prent", "Snið fyrir samfélagsmiðla"],
-  },
-  {
-    title: "Branding",
-    icon: Sparkles,
-    desc: "Skýr sjálfsmynd sem fólk man – frá lógói til litaspjalds.",
-    bullets: ["Lógó & merki", "Litaspjald & letur", "Notkunarleiðbeiningar"],
-  },
-  {
-    title: "Auglýsingar & birtingar",
+    title: "Stafrænir miðlar",
     icon: Megaphone,
-    desc: "Við finnum fólkið þitt – og mælum árangurinn.",
-    bullets: ["Meta & Instagram Ads", "Google Ads", "Birtingaáætlun & skýrslur"],
-  },
+    desc: "Við hjálpum íþróttafélögum að skapa faglegt umhverfi á samfélagsmiðlum",
+    bullets: ["Styrkja ímynd félagsins á samfélagsmiðlum", "Hönnun & framleiðsla á efni fyrir leikdaga (byrjunarlið, hálf-leikur, lokatölur, o.fl.)", "Stories, reels og lifandi efni sem sýnir stemningu og karakter liðsins", "Stjórnun samfélagsmiðla og skipulag á flæði"],
+  }
 ];
 
 export default function Services() {
   return (
     <section id="thonusta" className="relative text-white overflow-hidden">
-      {/* 🔹 Top gradient divider */}
+      {/* Top gradient divider */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
 
       <div className="mx-auto max-w-6xl px-6 py-20">
@@ -45,7 +35,7 @@ export default function Services() {
             showCursor={false}
           />
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-            Við hjálpum fyrirtækjum, íþróttafélögum og einstaklingum að sjást – faglega og markvisst.
+            Spor hjálpar íþróttaliðum að vera sýnilegri og faglegri í stafrænum heimi
           </p>
         </div>
 
@@ -54,15 +44,9 @@ export default function Services() {
           {items.map(({ title, icon: Icon, desc, bullets }) => (
             <article
               key={title}
-              className="group relative rounded-2xl p-6 bg-white/[0.02] border border-white/10
+              className="group relative rounded-2xl p-6 bg-[#111111] border border-white/10
                          backdrop-blur-sm transition-transform motion-safe:duration-300
-                         hover:-translate-y-1 hover:border-white/25"
-            >
-              {/* Glow on hover */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 
-                              transition-opacity motion-safe:duration-300 group-hover:opacity-100
-                              bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.18),rgba(0,0,0,0))]" />
-
+                         hover:-translate-y-1 hover:border-white/25">
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl p-2 bg-white/5 border border-white/10">
@@ -81,21 +65,13 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-
-                {/* Soft line inside card */}
                 <div className="mt-6 h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
                 <div className="mt-4 flex items-center gap-4">
                   <a
                     href="#hafa-samband"
                     className="text-sm font-medium underline underline-offset-4 hover:opacity-80"
                   >
-                    Fá tilboð
-                  </a>
-                  <a
-                    href="#verkefni"
-                    className="text-sm text-white/70 hover:text-white/90 transition"
-                  >
-                    Sjá dæmi
+                    Hafa Samband
                   </a>
                 </div>
               </div>
@@ -104,7 +80,7 @@ export default function Services() {
         </div>
       </div>
 
-      {/* 🔹 Bottom gradient divider */}
+      {/* Bottom divider */}
       <div className="pointer-events-none h-px w-full bg-gradient-to-r from-white/0 via-white/25 to-white/0" />
     </section>
   );

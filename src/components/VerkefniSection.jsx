@@ -10,19 +10,19 @@ import SnerpaMp4 from "../assets/Snerpa.mp4"
 const projects = [
   {
     name: "Snerpa Coaching",
-    role: ["Vefsíðugerð", "UX/UI"],
-    icon: Globe,
+    role: ["Samfélagsmiðlar", "Efnisgerð"],
+    icon: Camera,
     blurb:
-      "Snerpa Coaching er fótboltaþjálfunarfyrirtæki. Við sjáum um samfélagsmiðlanna hjá þeim og hönnun og viðhald vefsíðunnar.",
-    link: "https://snerpacoaching.is",
+      "Við sjáum um samfélagsmiðlanna hjá Snerpu Coaching sem er fótboltaþjálfunarfyrirtæki.",
+    link: "https://www.instagram.com/snerpacoaching/",
   },
   {
     name: "Breiðablik",
     role: ["Samfélagsmiðlar", "Efnisgerð"],
     icon: Camera,
     blurb:
-      "Við sjáum um samfélagsmiðlanna hjá Breiðablik. Við búum til fagleg myndbönd, leikjaumfjöllun og sjáum um daglega birtingu á efni sem styrkir ímynd félagsins.",
-    link: "https://breidablik.is",
+      "Við gerum fagleg myndbönd, leikjaumfjöllun og daglega birtingu á alls konar efni sem styrkir ímynd Breiðabliks.",
+    link: "https://www.instagram.com/breidablikfc/",
   },
   {
     name: "Ultra International",
@@ -41,6 +41,10 @@ const projects = [
     link: "https://merkiverk.is",
   },
 ];
+
+const HIDDEN = new Set(["Ultra International", "Merkiverk"]);
+const visibleProjects = projects.filter(p => !HIDDEN.has(p.name));
+
 
 export default function VerkefniSection() {
   return (
@@ -61,13 +65,13 @@ export default function VerkefniSection() {
             showCursor={false}
           />
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-            Úrval verkefna þar sem við sameinum hönnun, vef og miðlun til að skila sýnileika og árangri.
+            Spor tekur að sér ýmis verkefni fyrir íþróttafélög til þess að gera eftirminnilegri upplifun fyrir alla í kringum félagið
           </p>
           <Vidskiptavinir />
         </div>
         {/* Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map(({ name, role, icon: Icon, blurb, link }) => {
+          {visibleProjects.map(({ name, role, icon: Icon, blurb, link }) => {
             const isPortrait = name === "Breiðablik" || name === "Snerpa Coaching";
             const mediaClass = isPortrait
               ? "aspect-[4/5] md:aspect-[3/4] max-h-[400px] sm:max-h-[480px]"
@@ -75,14 +79,9 @@ export default function VerkefniSection() {
             return (
               <article
                 key={name}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111111]
                           backdrop-blur-sm p-6 transition-transform motion-safe:duration-300
                           hover:-translate-y-1 hover:border-white/25 flex flex-col">
-                {/* Glow */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 
-                                transition-opacity motion-safe:duration-300 group-hover:opacity-100
-                                bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.18),rgba(0,0,0,0))]" />
-
                 {/* Media */}
                 {name === "Breiðablik" ? (
                   <div className={`relative z-10 w-full overflow-hidden rounded-xl
@@ -102,7 +101,7 @@ export default function VerkefniSection() {
                       <source src={SnerpaMp4} type="video/mp4" />
                     </video>
                   </div>
-                ) : name === "Ultra International" ? (
+                ) : (name === "Ultra International" && false) ? (
                   <ElectricLinesBox
                     color="#00C7D9" lineCount={11} speed={75} glow={28}
                     className={`relative z-10 w-full rounded-xl overflow-hidden
@@ -144,11 +143,8 @@ export default function VerkefniSection() {
                   <div className="mt-4 flex items-center gap-4">
                     <a href={link} target="_blank" rel="noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4 hover:opacity-80">
-                      Skoða verkefni <ExternalLink className="h-4 w-4" />
+                      Skoða miðla <ExternalLink className="h-4 w-4" />
                     </a>
-                    <Link to="/#hafa-samband" className="text-sm text-white/70 hover:text-white/90 transition">
-                      Fá tilboð
-                    </Link>
                   </div>
                 </div>
               </article>
