@@ -1,11 +1,10 @@
 import { ExternalLink, Globe, Camera, Sparkles } from "lucide-react";
 import TextType from "../reactBits/typing.jsx";
-import { Link } from "react-router-dom";
 import Vidskiptavinir from "../components/VidskiptavinirSection.jsx";
 import ultra_logo from "../assets/ultra_white.png"
 import ElectricLinesBox from "../animation/ElectricLinesBox.jsx"
 import BreidablikMp4 from "../assets/breidablik.mp4"
-import SnerpaMp4 from "../assets/Snerpa.mp4"
+import SnerpaMp4 from "../assets/snerpa.mp4"
 
 const projects = [
   {
