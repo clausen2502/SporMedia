@@ -1,77 +1,57 @@
-// src/pages/Verkefni.jsx
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CircularGallery from "../reactBits/photoscroll.jsx";
-import TextType from "../reactBits/typing.jsx";
+
+import VerkefniIntro from "../components/verkefni/intro.jsx";
+import BreidablikSection from "../components/verkefni/BreidablikSection.jsx";
+import SnerpaSection from "../components/verkefni/SnerpaSection.jsx";
+import SidebarProjects from "../components/verkefni/SideBarProjects.jsx";
 
 export default function Verkefni() {
-  const items = [
-    { image: "/media/breidablik/byrjunarlid1.jpeg", text: "" },
-    { image: "/media/breidablik/evroputreyja-2025.jpeg", text: "" },
-    { image: "/media/breidablik/halfleikur1.jpeg", text: "" },
-    { image: "/media/breidablik/isl-meistarar-kvk.jpeg", text: "" },
-    { image: "/media/breidablik/leikdagur1.jpeg", text: "" },
-    { image: "/media/breidablik/leikur-hafinn1.jpeg", text: "" },
-    { image: "/media/breidablik/ljosid.jpeg", text: "" },
-    { image: "/media/breidablik/naesti-leikur1.jpeg", text: "" },
-    { image: "/media/breidablik/next-match1.jpeg", text: "" },
-    { image: "/media/breidablik/leik-lokid.jpeg", text: "" },
-  ];
+  const NAV_H = 96;
 
   return (
     <>
-      <Navbar />
-      <main className="min-h-screen bg-[#101820] text-white py-20">
-        <section className="relative mx-auto max-w-6xl px-6 pt-20 pb-8">
-          {/* Eyebrow + main page heading */}
-          <header className="text-center">
-            {/* main title (typed) */}
-            <h1 className="text-4xl sm:text-6xl font-bold">
-              <TextType text="Verkefnin Okkar" speed={70} showCursor={false} />
-            </h1>
+      <div className="fixed inset-x-0 top-0 z-50">
+        <Navbar
+          neverHide
+          blurTriggerId="verkefni-intro"
+          blurTriggerOffset={NAV_H}
+        />
+      </div>
 
-            {/* lead — slower, soft */}
-            <p className="mt-3 text-white/70 max-w-2xl mx-auto
-                          opacity-0 translate-y-3 will-change-[transform,opacity]
-                          animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_400ms_forwards]">
-              Efni sem við bjuggum til fyrir viðskiptavini
-            </p>
+      {/* Offset the page for the fixed navbar */}
+      <main className="min-h-screen bg-[#101820] text-white" style={{ paddingTop: NAV_H }}>
+        {/* Right-align the container on md+ so the sidebar can be flush right */}
+        <div className="max-w-7xl px-6 md:ml-auto md:mr-0 md:pr-0 md:pl-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+            {/* Left/content column */}
+            <div className="md:col-span-9">
+              <section id="verkefni-intro">
+                <VerkefniIntro />
+              </section>
 
-            {/* subtle divider — lingers a bit */}
-            <div className="mx-auto mt-8 h-px w-44 bg-gradient-to-r from-transparent via-[#FEE715]/60 to-transparent
-                            opacity-0 will-change-[opacity]
-                            animate-[fadeIn_1000ms_ease-out_700ms_forwards]" />
-          </header>
+              <section id="breidablik">
+                <BreidablikSection />
+              </section>
 
-          {/* project block title */}
-          <div className="mt-10 text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-wide text-white
-                           opacity-0 translate-y-3 will-change-[transform,opacity]
-                           animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1000ms_forwards]">
-              BREIÐABLIK
-            </h2>
-            <p className="mt-3 text-white/70 max-w-2xl mx-auto
-                          opacity-0 translate-y-3 will-change-[transform,opacity]
-                          animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1200ms_forwards]">
-              Myndir úr samstarfi okkar við Breiðablik
-            </p>
-          </div>
-
-          {/* gallery — fades & settles after headings */}
-          <div className="mt-8 flex justify-center
-                          opacity-0 scale-[.985] will-change-[transform,opacity]
-                          animate-[fadeInScale_1200ms_cubic-bezier(0.22,0.61,0.36,1)_1500ms_forwards]">
-            <div className="relative w-full h-[68vh] max-h-[820px]">
-              <CircularGallery
-                items={items}
-                bend={3}
-                textColor="#ffffff"
-                borderRadius={0.08}
-                scrollEase={0.02}
-              />
+              <section id="snerpa">
+                <SnerpaSection />
+              </section>
             </div>
+
+            {/* Right/sticky sidebar; flush because container has pr-0 on md+ */}
+            <aside className="md:col-span-3 md:sticky self-start" style={{ top: NAV_H }}>
+              <SidebarProjects
+                items={[
+                  { id: "breidablik", label: "Breiðablik" },
+                  { id: "snerpa", label: "Snerpa Coaching" },
+                ]}
+                offset={NAV_H}
+              />
+            </aside>
           </div>
-        </section>
+        </div>
+
         <Footer />
       </main>
     </>

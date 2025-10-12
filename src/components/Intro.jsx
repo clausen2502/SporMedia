@@ -38,9 +38,6 @@ export default function Intro() {
           <Link to="verkefni" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition">
             Skoða Verkefni
           </Link>
-          <Link to="/verkefni" className="nav-link">
-          Verkefni
-          </Link>
         </div>
       </div>
 

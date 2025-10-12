@@ -139,7 +139,6 @@ export default function VerkefniSection() {
                       </span>
                     ))}
                   </div>
-
                   <div className="mt-6 h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
                   <div className="mt-4 flex items-center gap-4">
                     <a href={link} target="_blank" rel="noreferrer"

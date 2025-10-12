@@ -1,20 +1,27 @@
+// src/components/Navbar.jsx
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo_spin from "../assets/logo-spin.mp4";
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+export default function Navbar({
+  neverHide = false,
+  forceBlur = false,
+  blurTriggerId,         // e.g. "verkefni-intro"
+  blurTriggerOffset = 0, // navbar height in px
+}) {
+  const [scrolled, setScrolled] = useState(false); // drives blur unless forceBlur
+  const [hidden, setHidden] = useState(false);     // slide-up hide
   const lastY = useRef(0);
   const ticking = useRef(false);
   const vidRef = useRef(null);
 
-  // thresholds
+  // default scroll thresholds (used when NO blurTriggerId)
   const SHOW_BG_AT = 60;
   const HIDE_AFTER = 200;
   const DELTA = 5;
 
+  // Hide/show logic (disabled when neverHide)
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
@@ -26,15 +33,19 @@ export default function Navbar() {
         const goingDown = y > prev + DELTA;
         const goingUp = y < prev - DELTA;
 
-        // Only update state if the value actually changes (prevents re-render spam)
-        const nextScrolled = y > SHOW_BG_AT;
-        if (nextScrolled !== scrolled) setScrolled(nextScrolled);
+        // If no explicit trigger is provided and not forceBlur, use classic threshold for blur
+        if (!blurTriggerId && !forceBlur) {
+          const nextScrolled = y > SHOW_BG_AT;
+          if (nextScrolled !== scrolled) setScrolled(nextScrolled);
+        }
 
-        let nextHidden = hidden;
-        if (y <= 0) nextHidden = false;
-        else if (goingDown && y > HIDE_AFTER) nextHidden = true;
-        else if (goingUp) nextHidden = false;
-        if (nextHidden !== hidden) setHidden(nextHidden);
+        if (!neverHide) {
+          let nextHidden = hidden;
+          if (y <= 0) nextHidden = false;
+          else if (goingDown && y > HIDE_AFTER) nextHidden = true;
+          else if (goingUp) nextHidden = false;
+          if (nextHidden !== hidden) setHidden(nextHidden);
+        }
 
         lastY.current = y;
         ticking.current = false;
@@ -43,22 +54,57 @@ export default function Navbar() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [scrolled, hidden]);
+  }, [hidden, scrolled, neverHide, blurTriggerId, forceBlur]);
+
+  // Blur ON once you've scrolled PAST the top of the trigger element
+  useEffect(() => {
+    if (!blurTriggerId) return;
+
+    const el = document.getElementById(blurTriggerId);
+    if (!el) return;
+
+    const computeTriggerTop = () =>
+      el.getBoundingClientRect().top + window.scrollY;
+
+    let triggerTop = computeTriggerTop();
+
+    const onScroll = () => {
+      const past = window.scrollY + blurTriggerOffset >= triggerTop;
+      setScrolled(past);
+    };
+
+    const onResize = () => {
+      triggerTop = computeTriggerTop();
+      onScroll(); // sync immediately
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    onResize(); // init
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [blurTriggerId, blurTriggerOffset]);
 
   useEffect(() => {
     vidRef.current?.play().catch(() => {});
   }, []);
+
+  const isHidden = neverHide ? false : hidden;
+  const blurOn = forceBlur || scrolled;
 
   return (
     <nav
       className={[
         "font-display fixed top-0 left-0 w-full z-50 px-10 py-2 pt-3",
         "flex items-center justify-between transition-transform duration-300 ease-out border-b border-white/10",
-        scrolled ? "backdrop-blur-md " : "bg-transparent",
-        hidden ? "-translate-y-full" : "translate-y-0",
-        "will-change-transform"
+        blurOn ? "backdrop-blur-md bg-[#101820]/65" : "bg-transparent",
+        isHidden ? "-translate-y-full" : "translate-y-0",
+        "will-change-transform",
       ].join(" ")}
-      onFocusCapture={() => setHidden(false)}
+      onFocusCapture={() => !neverHide && setHidden(false)}
     >
       {/* Logo */}
       <div className="relative inline-block w-[200px] h-[60px] -ml-10">
@@ -75,12 +121,12 @@ export default function Navbar() {
             autoPlay
             loop
             playsInline
-            preload="metadata"     // was "auto" → lighter on scroll
+            preload="metadata"
           />
         </Link>
       </div>
 
-      {/* Navigation links */}
+      {/* Links */}
       <div className="flex items-center gap-12 text-white">
         <HashLink smooth to="/#um-okkur" className="nav-link">
           Um Okkur

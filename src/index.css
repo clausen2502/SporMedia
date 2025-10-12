@@ -74,3 +74,17 @@
   from { opacity: 0; transform: scale(.985); }
   to   { opacity: 1; transform: scale(1); }
 }
+
+.sphere-root {
+  --overlay-blur-color: transparent !important;
+  background: transparent !important;
+}
+
+.sphere-root::before,
+.sphere-root::after,
+.stage,
+.stage::before,
+.stage::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
