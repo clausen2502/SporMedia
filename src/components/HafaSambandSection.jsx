@@ -1,20 +1,40 @@
-// src/components/ContactMini.jsx
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-export default function ContactMini() {
+export default function HafaSambandSection() {
   const [pending, setPending] = useState(false);
+  const [status, setStatus] = useState({ ok: null, msg: "" });
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const form = e.currentTarget;
+
+    // Honeypot: if filled, bail (bot)
+    if (new FormData(form).get("company")) return;
+
+    setPending(true);
+    setStatus({ ok: null, msg: "" });
+
     try {
-      setPending(true);
-      // TODO: connect to your backend:
-      // await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      await new Promise((r) => setTimeout(r, 600)); // demo delay
-      e.currentTarget.reset();
-      alert("Takk! Við svörum fljótt.");
+      const res = await fetch("https://formspree.io/f/xeorpjwr", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        form.reset();
+        setStatus({ ok: true, msg: "Takk fyrir fyrirspurnina! Við höfum samband eins fljótt og hægt er." });
+      } else {
+        // Formspree sends JSON with errors
+        const data = await res.json().catch(() => null);
+        const msg =
+          data?.errors?.map((e) => e.message).join(", ") ||
+          "Villa kom upp. Reyndu aftur.";
+        setStatus({ ok: false, msg });
+      }
+    } catch {
+      setStatus({ ok: false, msg: "Nettenging brást. Reyndu aftur." });
     } finally {
       setPending(false);
     }
@@ -22,24 +42,37 @@ export default function ContactMini() {
 
   return (
     <section id="hafa-samband" className="py-8">
-      {/* wider container */}
       <div className="mx-auto w-full max-w-4xl px-6">
         <form
           onSubmit={handleSubmit}
+          action="https://formspree.io/f/xeorpjwr"
+          method="POST"
           className="rounded-3xl border border-[#FEE715]/60 bg-[#101820] p-8 sm:p-12 shadow-xl"
         >
-          {/* centered header */}
           <h2 className="text-white text-3xl sm:text-4xl font-semibold text-center">
             Byrjum samtalið!
           </h2>
           <p className="text-white/70 text-sm sm:text-base mt-2 text-center">
-          Endilega sentu okkur fyrirspurn og við könnum valmöguleikanna
+            Endilega sendu okkur fyrirspurn og við könnum valmöguleikana
           </p>
+
+          {/* Inline status */}
+          {status.msg && (
+            <div
+              role="status"
+              className={`mt-4 rounded-xl px-4 py-3 text-sm ${
+                status.ok
+                  ? "bg-emerald-600/20 text-emerald-200 border border-emerald-500/40"
+                  : "bg-red-600/20 text-red-200 border border-red-500/40"
+              }`}
+            >
+              {status.msg}
+            </div>
+          )}
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="name" className="block text-xs text-white/70 mb-1">
-              </label>
+              <label htmlFor="name" className="sr-only">Nafn</label>
               <input
                 id="name"
                 name="name"
@@ -53,8 +86,7 @@ export default function ContactMini() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs text-white/70 mb-1">
-              </label>
+              <label htmlFor="email" className="sr-only">Netfang</label>
               <input
                 id="email"
                 name="email"
@@ -70,8 +102,7 @@ export default function ContactMini() {
           </div>
 
           <div className="mt-4">
-            <label htmlFor="message" className="block text-xs text-white/70 mb-1">
-            </label>
+            <label htmlFor="message" className="sr-only">Skilaboð</label>
             <textarea
               id="message"
               name="message"
@@ -84,6 +115,10 @@ export default function ContactMini() {
                          focus-visible:outline-[#FEE715] focus-visible:outline-offset-2"
             />
           </div>
+
+          {/* Optional metadata */}
+          <input type="hidden" name="_subject" value="Ný fyrirspurn af spormedia.is" />
+          <input type="hidden" name="_page" value={typeof window !== "undefined" ? window.location.href : "unknown"} />
 
           {/* Honeypot (spam trap) */}
           <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
