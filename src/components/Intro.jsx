@@ -25,7 +25,7 @@ export default function Intro() {
         </h1>
 
         <p className="mt-6 text-lg text-[#F8FAFC]">
-          Spor hjálpar fyrirtækjum með markaðstengt verkefni á öllum sviðum
+          Spor hjálpar fyrirtækjum með markaðstengd verkefni á öllum sviðum
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
