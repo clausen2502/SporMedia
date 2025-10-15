@@ -18,7 +18,7 @@ export default function Intro() {
       <div className="relative z-10 text-center px-6 max-w-3xl flex-1 flex flex-col justify-center">
         <h1 className="text-4xl sm:text-6xl font-bold">
           <TextType
-            text="Þitt spor byrjar hér"
+            text="Þitt Spor byrjar hér"
             speed={70}
             showCursor={false}
           />
