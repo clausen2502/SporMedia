@@ -18,14 +18,14 @@ export default function Intro() {
       <div className="relative z-10 text-center px-6 max-w-3xl flex-1 flex flex-col justify-center">
         <h1 className="text-4xl sm:text-6xl font-bold">
           <TextType
-            text="Spor gerir íþróttir að upplifun"
+            text="Þitt spor byrjar hér"
             speed={70}
             showCursor={false}
           />
         </h1>
 
         <p className="mt-6 text-lg text-[#F8FAFC]">
-          Hnitmiðuð og fagleg markaðsþjónusta sérsniðin fyrir þitt íþróttafélag
+          Spor hjálpar fyrirtækjum með markaðstengt verkefni á öllum sviðum
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">

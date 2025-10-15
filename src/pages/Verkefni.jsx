@@ -12,47 +12,41 @@ export default function Verkefni() {
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50">
-        <Navbar
-          neverHide
-          blurTriggerId="verkefni-intro"
-          blurTriggerOffset={NAV_H}
+        <Navbar neverHide blurTriggerId="verkefni-intro" blurTriggerOffset={NAV_H} />
+      </div>
+
+      <div className="fixed z-40 right-4 top-[96px] w-56 sm:w-64 md:w-72">
+        <SidebarProjects
+          items={[
+            { id: "breidablik", label: "Breiðablik" },
+            { id: "snerpa", label: "Snerpa Coaching" },
+          ]}
+          offset={NAV_H}
         />
       </div>
 
-      {/* Offset the page for the fixed navbar */}
-      <main className="min-h-screen bg-[#101820] text-white" style={{ paddingTop: NAV_H }}>
-        {/* Right-align the container on md+ so the sidebar can be flush right */}
-        <div className="max-w-7xl px-6 md:ml-auto md:mr-0 md:pr-0 md:pl-6">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-            {/* Left/content column */}
-            <div className="md:col-span-9">
-              <section id="verkefni-intro">
-                <VerkefniIntro />
-              </section>
+      <main className="min-h-screen bg-[#101820] text-white pt-[96px]">
+        <div
+          className="
+            mx-auto max-w-[1280px]
+            px-4 lg:px-8
+            pr-[15rem] sm:pr-[17rem] md:pr-[19rem]
+          "
+        >
+          <section id="verkefni-intro">
+            <VerkefniIntro />
+          </section>
 
-              <section id="breidablik">
-                <BreidablikSection />
-              </section>
+          <section id="breidablik" className="py-8">
+            <BreidablikSection />
+          </section>
 
-              <section id="snerpa">
-                <SnerpaSection />
-              </section>
-            </div>
+          <section id="snerpa" className="py-8">
+            <SnerpaSection />
+          </section>
 
-            {/* Right/sticky sidebar; flush because container has pr-0 on md+ */}
-            <aside className="md:col-span-3 md:sticky self-start" style={{ top: NAV_H }}>
-              <SidebarProjects
-                items={[
-                  { id: "breidablik", label: "Breiðablik" },
-                  { id: "snerpa", label: "Snerpa Coaching" },
-                ]}
-                offset={NAV_H}
-              />
-            </aside>
-          </div>
+          <Footer />
         </div>
-
-        <Footer />
       </main>
     </>
   );

@@ -20,16 +20,16 @@ export default function BreidablikSection() {
   ];
 
   return (
-    <section id="breidablik" className="relative mx-auto max-w-6xl px-6 pb-8">
-      <div className="mt-10 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-wide text-white
+    <section id="breidablik" className="relative">
+      <div className=" text-center">
+        <h2 className="text-3xl sm:text-5xl font-bold tracaking-wide text-white
                        opacity-0 translate-y-3 will-change-[transform,opacity]
-                       animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1000ms_forwards]">
+                       animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1500ms_forwards]">
           BREIÐABLIK
         </h2>
         <p className="mt-3 text-white/70 max-w-2xl mx-auto
                       opacity-0 translate-y-3 will-change-[transform,opacity]
-                      animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1200ms_forwards]">
+                      animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1600ms_forwards]">
           Myndir úr samstarfi okkar við Breiðablik
         </p>
       </div>

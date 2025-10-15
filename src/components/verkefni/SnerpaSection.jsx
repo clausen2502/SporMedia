@@ -5,8 +5,8 @@ export default function SnerpaSection() {
   const images = Array.from({ length: 16 }, (_, i) => `/media/snerpa/snerpa${i + 1}.jpeg`);
 
   return (
-    <section id="snerpa" className="relative mx-auto max-w-6xl px-6 pb-8">
-      <div className="mt-10 text-center">
+    <section id="snerpa" className="relative">
+      <div className="text-center">
         <TextType
           text="SNERPA COACHING"
           className="text-3xl sm:text-5xl font-bold tracking-tight"
@@ -14,7 +14,7 @@ export default function SnerpaSection() {
           startOnVisible={true}
           showCursor={false}
         />
-        <p className="mt-2 mb-1 text-white/70 max-w-2xl mx-auto
+        <p className="mb-1 text-white/70 max-w-2xl mx-auto
                       opacity-0 translate-y-3 will-change-[transform,opacity]
                       animate-[fadeUpSoft_900ms_cubic-bezier(0.22,0.61,0.36,1)_1200ms_forwards]">
           Myndir úr samstarfi okkar við Snerpu
