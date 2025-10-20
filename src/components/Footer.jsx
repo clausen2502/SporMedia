@@ -43,7 +43,7 @@ export default function Footer() {
             <p className="text-xs tracking-widest text-fuchsia-50 mb-3">Gagnlegir Tenglar</p>
             <ul className="space-y-2">
               <li><HashLink smooth to="/#um-okkur" className="footer-link block">Um okkur</HashLink></li>
-              <li><HashLink to="/#verkefni" className="footer-link block">Verkefni</HashLink></li>
+              <li><Link to="/verkefni" className="footer-link block">Verkefni</Link></li>
               <li><HashLink smooth to="/#hafa-samband" className="footer-link block">Hafa samband</HashLink></li>
             </ul>
           </div>

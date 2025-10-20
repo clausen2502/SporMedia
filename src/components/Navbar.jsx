@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -7,21 +6,21 @@ import logo_spin from "../assets/logo-spin.mp4";
 export default function Navbar({
   neverHide = false,
   forceBlur = false,
-  blurTriggerId,         // e.g. "verkefni-intro"
-  blurTriggerOffset = 0, // navbar height in px
+  blurTriggerId,
+  blurTriggerOffset = 0,
 }) {
-  const [scrolled, setScrolled] = useState(false); // drives blur unless forceBlur
-  const [hidden, setHidden] = useState(false);     // slide-up hide
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
   const ticking = useRef(false);
   const vidRef = useRef(null);
 
-  // default scroll thresholds (used when NO blurTriggerId)
+
   const SHOW_BG_AT = 60;
   const HIDE_AFTER = 200;
   const DELTA = 5;
 
-  // Hide/show logic (disabled when neverHide)
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
@@ -33,7 +32,6 @@ export default function Navbar({
         const goingDown = y > prev + DELTA;
         const goingUp = y < prev - DELTA;
 
-        // If no explicit trigger is provided and not forceBlur, use classic threshold for blur
         if (!blurTriggerId && !forceBlur) {
           const nextScrolled = y > SHOW_BG_AT;
           if (nextScrolled !== scrolled) setScrolled(nextScrolled);
@@ -56,7 +54,6 @@ export default function Navbar({
     return () => window.removeEventListener("scroll", onScroll);
   }, [hidden, scrolled, neverHide, blurTriggerId, forceBlur]);
 
-  // Blur ON once you've scrolled PAST the top of the trigger element
   useEffect(() => {
     if (!blurTriggerId) return;
 
@@ -75,12 +72,12 @@ export default function Navbar({
 
     const onResize = () => {
       triggerTop = computeTriggerTop();
-      onScroll(); // sync immediately
+      onScroll();
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
-    onResize(); // init
+    onResize();
 
     return () => {
       window.removeEventListener("scroll", onScroll);

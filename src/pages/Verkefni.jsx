@@ -45,8 +45,8 @@ export default function Verkefni() {
             <SnerpaSection />
           </section>
 
-          <Footer />
         </div>
+        <Footer />
       </main>
     </>
   );

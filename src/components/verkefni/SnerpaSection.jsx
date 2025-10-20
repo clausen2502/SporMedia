@@ -25,16 +25,15 @@ export default function SnerpaSection() {
         <div className="relative w-full h-[68vh] max-h-[820px]">
           <DomeGallery
             images={images}
-            fit={0.6}
+            fit={0.5}
             minRadius={300}
             maxVerticalRotationDeg={10}
-            segments={20}
+            segments={22}
             grayscale={false}
           />
         </div>
       </div>
 
-      {/* Partner links (yellow outline, no icons) */}
       <nav className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm
                       opacity-0 translate-y-2 will-change-[transform,opacity]
                       animate-[fadeUpSoft_800ms_cubic-bezier(0.22,0.61,0.36,1)_1800ms_forwards]">
