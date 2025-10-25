@@ -15,7 +15,7 @@ export default function Verkefni() {
         <Navbar neverHide blurTriggerId="verkefni-intro" blurTriggerOffset={NAV_H} />
       </div>
 
-      <div className="fixed z-40 right-4 top-[96px] w-56 sm:w-64 md:w-72">
+      <div className="hidden xl:block lg:fixed lg:z-40 lg:right-4 lg:top-[96px] lg:w-72">
         <SidebarProjects
           items={[
             { id: "breidablik", label: "Breiðablik" },
@@ -29,8 +29,7 @@ export default function Verkefni() {
         <div
           className="
             mx-auto max-w-[1280px]
-            px-4 lg:px-8
-            pr-[15rem] sm:pr-[17rem] md:pr-[19rem]
+            px-4 lg:px-8 
           "
         >
           <section id="verkefni-intro">
