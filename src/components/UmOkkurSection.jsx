@@ -8,19 +8,16 @@ const people = [
   {
     name: "Ísak",
     email: "isak@spormedia.is",
-    role: "Verkefnastjóri • Efnisgerð",
     img: isak,
   },
   {
     name: "Óskar",
     email: "oskar@spormedia.is",
-    role: "Hönnun • UX/UI",
     img: oskar,
   },
   {
     name: "Mirza",
     email: "mirza@spormedia.is",
-    role: "Miðlun • Myndefni",
     img: mirza,
   },
 ];
