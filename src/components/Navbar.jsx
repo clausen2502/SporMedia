@@ -51,7 +51,7 @@ export default function Navbar({
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);å
   }, [hidden, scrolled, neverHide, blurTriggerId, forceBlur]);
 
   useEffect(() => {
