@@ -46,7 +46,7 @@ export default function Services() {
               key={title}
               className="group relative rounded-2xl p-6 bg-[#101820] border border-[#FEE715]
                          backdrop-blur-sm transition-transform motion-safe:duration-300
-                         hover:-translate-y-1 ">
+                        ">
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl p-2 bg-white/5 border border-white/10">

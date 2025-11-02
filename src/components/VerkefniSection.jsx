@@ -82,7 +82,7 @@ export default function VerkefniSection() {
                 key={name}
                 className="group relative overflow-hidden rounded-2xl border border-[#FEE715] bg-[#101820]
                           backdrop-blur-sm p-6 transition-transform motion-safe:duration-300
-                          hover:-translate-y-1 flex flex-col">
+                          flex flex-col">
                 {/* Media */}
                 {name === "Breiðablik" ? (
                   <div className={`relative z-10 w-full overflow-hidden rounded-xl

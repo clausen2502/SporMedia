@@ -17,12 +17,12 @@ export default function VidskiptavinirSection() {
       className=" text-white py-10"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="relative h-20 overflow-hidden">
+        <div className="relative h-22 overflow-hidden">
           <LogoScroll
             logos={imageLogos}
             speed={80}
             direction="left"
-            logoHeight={56}
+            logoHeight={72}
             gap={48}
             pauseOnHover={false}
             scaleOnHover

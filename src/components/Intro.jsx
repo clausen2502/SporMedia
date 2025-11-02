@@ -10,7 +10,16 @@ export default function Intro() {
       id="intro"
       className="relative w-screen min-h-[100svh] overflow-hidden text-white flex flex-col items-center justify-center"
     >
-
+      {/* Background Threads */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <Threads
+          amplitude={1}
+          distance={0.5}
+          enableMouseInteraction={true}
+          color={[254/255, 231/255, 21/255]}
+        />
+      </div>
+      
       {/* Vignette overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none" />
 
@@ -35,7 +44,7 @@ export default function Intro() {
             className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-[#FEE715] text-black hover:opacity-60 transition">
             Hafa Samband
           </HashLink>
-          <Link to="verkefni" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition">
+          <Link to="verkefni" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium border border-[#FEE715] text-white hover:border-white/40 transition bg-[#101820]">
             Skoða Verkefni
           </Link>
         </div>
